@@ -2,19 +2,20 @@
 **Prodigy InfoTech — Machine Learning Internship**
 
 ## Objective
-Group mall customers into segments based on **Annual Income** and **Spending Score** using **K-Means clustering**.
+Group mall customers into segments based on **Annual Income** and **Spending Score** using **K-Means clustering**. Provide an interactive web dashboard for real-time customer segment prediction.
 
 ## Dataset
 [Mall Customer Segmentation Data (Kaggle)](https://www.kaggle.com/datasets/vjchoudhary7/customer-segmentation-tutorial-in-python) — 200 customers, columns: CustomerID, Gender, Age, Annual Income (k$), Spending Score (1-100).
 
 ## Tools
-Python, pandas, numpy, matplotlib, seaborn, scikit-learn (KMeans, StandardScaler, silhouette_score)
+Python, pandas, numpy, matplotlib, seaborn, scikit-learn (KMeans, StandardScaler, silhouette_score), **Streamlit** (Frontend Dashboard), **Plotly** (Interactive Visualizations).
 
 ## Approach
 1. Scale Income & Spending Score
 2. Find optimal K via Elbow Method + Silhouette Score → **K = 5** (score ≈ 0.555)
 3. Fit K-Means, visualize clusters (2D & 3D)
 4. Profile & label segments; heatmap, gender/age breakdowns, cluster size pie chart
+5. **Develop an interactive Streamlit web application (`app.py`) to visualize the clusters dynamically and predict segments for new customers.**
 
 *Note: K-Means is unsupervised — no ground-truth labels, so no accuracy/confusion matrix. Silhouette score is used instead.*
 
@@ -31,14 +32,25 @@ Python, pandas, numpy, matplotlib, seaborn, scikit-learn (KMeans, StandardScaler
 **Target** segment = best marketing focus.
 
 ## Files
-- `PRODIGY_ML_02.ipynb` — full notebook
+- `PRODIGY_ML_02.ipynb` — full notebook containing the data exploration and model training.
+- `app.py` — Streamlit interactive web dashboard for visualization and real-time prediction.
+- `requirements.txt` — Python dependencies required to run the project.
 - `Mall_Customers.csv` — original dataset
 - `Mall_Customers_Clustered.csv` — data with cluster labels
 - `output_images/` — saved chart images
 
 ## Run
+
+### Running the Notebook
 ```bash
 pip install pandas numpy matplotlib seaborn scikit-learn jupyter
 jupyter notebook PRODIGY_ML_02.ipynb
 ```
-Place `Mall_Customers.csv` in the same folder before running.
+
+### Running the Interactive Web Dashboard
+To launch the Streamlit application, install the dependencies and run `app.py`:
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+*Place `Mall_Customers.csv` in the same folder before running.*
